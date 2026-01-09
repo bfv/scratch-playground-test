@@ -1,0 +1,22 @@
+services:
+
+  devcontainer:
+    image: ${DEVCONTAINER_IMAGE}
+    volumes:
+      - ../..:/workspaces:cached
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${PROGRESS_CFG}:/usr/dlc/progress.cfg
+    ports:
+      - ${DEBUG_PORT}:3099
+    command: sleep infinity
+
+  sports2020-db:
+    image: ${DB_IMAGE}
+    volumes:
+      - ${PROGRESS_CFG}:/usr/dlc/progress.cfg
+    ports:
+      - 10000-10010:10000-10010
+    environment:
+      - DBNAME=sports2020    
+
+    

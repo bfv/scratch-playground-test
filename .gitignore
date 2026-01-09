@@ -1,0 +1,8 @@
+.builder/
+bin/
+tmp/
+
+# .env
+progress.cfg
+
+*.r
